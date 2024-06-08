@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+:root{
+  --bg-blue: #283044;
+  --bg-light-blue: #7A959F;
+  --bg-white: #FFFFFF;
+  --bg-utp:#ECF4F9;
+  --text-color-blac:#000000;
+  --font-primary:'Lato', sans-serif;
+  --size-title:24px;
+  --size-button-title:14px;
+  --size-body:16px;
+}
 #root {
   height: 100vh;
   width: 100vw;
@@ -72,4 +84,77 @@ header {
 
 .menu-item.active, .menu-item:hover {
   background-color: #004080;
+}
+
+
+/*********************************************************************/
+/*main students*/
+
+.container-menu-alumno{
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  .container-menu-alumno h1{
+    font-family: var(--font-primary);
+    font-size: var(--size-title);
+    color: var(--text-color-blac);
+  }
+  .container-menu-alumno .container-salas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    background: var(--bg-utp);
+    margin: 0px auto;
+  }
+  .container-menu-alumno .container-salas-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+.container-menu-alumno .container-salas .target-sala{
+  width: 25vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  background: var(--bg-white);
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 0 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  align-items: center;
+}
+.container-menu-alumno .container-salas .container-salas-row .target-sala .content-target{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  gap: 15px;
+}
+.container-menu-alumno .container-salas .container-salas-row .target-sala .content-target h3,
+.container-menu-alumno .container-salas .container-salas-row .target-sala .content-target p
+{
+  font-family: var(--font-primary);
+  font-size: var(--size-title);
+  color: var(--text-color-blac);
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+}
+.container-menu-alumno .container-salas .container-salas-row .target-sala .button-sala{
+  width: auto;
+  height: 30px;
+  background: var(--bg-blue);
+  color: var(--bg-white);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: var(--font-primary);
+  font-size: var(--size-button-title);
+  cursor: pointer;
 }
