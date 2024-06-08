@@ -25,5 +25,5 @@ Para ejecutar este proyecto con Docker, asegúrese de tener Docker y Docker Comp
    ```bash
    docker-compose up -d
    ```
-2. Acceda a la aplicación web en su navegador en http://localhost.
+2. Acceda a la aplicación web en su navegador en http://localhost:5173
 
