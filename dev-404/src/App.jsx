@@ -1,21 +1,37 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './components/header'
-import Footer from './components/footer'
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import TeacherLayout from './pages/teacher/teacher_layout'
+import MenuProfesor from './pages/teacher/menu_profesor'
+import MenuSalas from './pages/teacher/menu_salas'
+import StudentLayout from './pages/student/student_layout'
 
+function App() {
+  const [role, setRole] = useState('teacher');
+  console.log(role)
   return (
-    <>
-      <Header />
-      <main>
-        <h1>¡Bienvenido a la aplicación!</h1>
-        <p>Has hecho clic {count} veces</p>
-        <button onClick={() => setCount(count + 1)}>Haz clic en mí</button>
-      </main>
-      <Footer />
-      
-    </>
+    <BrowserRouter>
+
+        {/* <button onClick={() => setRole('teacher')}>Profesor</button>
+        <button onClick={() => setRole('student')}>Estudiante</button> */}
+      <Routes>
+        {/* Rutas para profesores */}
+        {role === 'teacher' && (
+          <Route path="/*" element={<TeacherLayout />}>
+            <Route index element={<MenuProfesor />} />
+            <Route path="menu" element={<MenuSalas />} />
+          </Route>
+        )}
+
+        {/* Rutas para estudiantes */}
+        {role === 'student' && (
+          <Route path="/*" element={<StudentLayout />}>
+            <Route index element={<StudentHome />} />
+            {/* Añadir más rutas para estudiantes si es necesario */}
+          </Route>
+        )}
+      </Routes>
+    </BrowserRouter>
   )
 }
 
