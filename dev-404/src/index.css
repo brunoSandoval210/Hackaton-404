@@ -89,6 +89,7 @@ header {
 
 /*********************************************************************/
 /*main students*/
+/*menu students*/
 
 .container-menu-alumno{
     width: 100vw;
@@ -146,6 +147,9 @@ header {
   margin: 0px;
   padding: 0px;
 }
+.container-menu-alumno .container-salas .container-salas-row .target-sala .content-target h3{
+  font-weight: bold;
+}
 .container-menu-alumno .container-salas .container-salas-row .target-sala .button-sala{
   width: auto;
   height: 30px;
@@ -157,4 +161,107 @@ header {
   font-family: var(--font-primary);
   font-size: var(--size-button-title);
   cursor: pointer;
+}
+
+/*menu task*/
+
+/* container-menu-sala
+container-backlog
+backlog-column
+task
+container-chat */
+.container-menu-sala{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  background: var(--bg-utp);
+}
+.container-menu-sala .container-backlog{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 65vw;
+  margin: 20px ;
+}
+.container-menu-sala .container-backlog .backlog-colum{
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: calc(70vh - 40px);
+  background: var(--bg-white);
+  border-radius: 10px;
+  margin: 0 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.container-menu-sala .container-backlog .backlog-colum h2{
+  font-family: var(--font-primary);
+  font-size: var(--size-title);
+  color: var(--text-color-blac);
+  margin: 10px 0px;
+  padding: 0px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--bg-blue);
+  border-radius: 30px;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.container-menu-sala .container-backlog .backlog-colum .task .tittle-task{
+  font-family: var(--font-primary);
+  font-size: var(--size-title);
+  color: var(--text-color-blac);
+  margin: 0px;
+  padding: 0px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .description-task{
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--text-color-blac);
+  margin: 0px;
+  padding: 0px;
+  text-align: justify;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .description-task span{
+  font-size: 12px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p{
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--text-color-blac);
+  margin: 0px;
+  margin-top: 5px;
+  padding: 0px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-pending,
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-process,
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-done{
+  border-radius: 30px;
+  padding: 5px 10px;
+  border: 1px solid var(--bg-blue);
+}
+
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-pending{
+  background: var(--bg-blue);
+  color: var(--bg-white);
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-process{
+  background: var(--bg-light-blue);
+  color: var(--bg-blue);
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-done{
+  background: var(--bg-utp);
+  color: var(--bg-blue);
 }

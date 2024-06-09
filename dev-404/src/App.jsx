@@ -6,9 +6,10 @@ import MenuProfesor from './pages/teacher/menu_profesor'
 import MenuSalas from './pages/teacher/menu_salas'
 import StudentLayout from './pages/student/StudentLayout'
 import MenuAlumno from './pages/student/MenuAlumno'
+import MenuSala from './pages/student/MenuSala'
 
 function App() {
-  const [role, setRole] = useState('teacher');
+  const [role, setRole] = useState('student');
   return (
     <BrowserRouter>
 
@@ -27,6 +28,7 @@ function App() {
         {role === 'student' && (
           <Route path="/*" element={<StudentLayout />}>
             <Route index element={<MenuAlumno />} />
+            <Route path="menu-sala" element={<MenuSala />} />
           </Route>
         )}
       </Routes>
