@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import CreateSalasModal from './create_salas_modal.jsx';
+import { fetchSalas_curso } from './../../services/apiServiceTeacher.js';
 
 const MenuSalas = () => {
+    const location = useLocation();
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [salas, setSalas] = useState([]);
     const [modalCrearSala, setModalCrearSala] = useState(false);
-    const navigate = useNavigate();
-    const location = useLocation();
+    const [salaCreada, setSalaCreada] = useState(false);
     const { curso } = location.state || { curso: null };
+    var curso_id = curso.id_curso;
+
 
     useEffect(() => {
         const fetchSalas = async () => {
             try {
-                const response = await fetch('http://localhost:3001/api/rooms/get_salas_by_courses/2');
+                const response = await fetchSalas_curso(curso_id);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -24,10 +29,18 @@ const MenuSalas = () => {
             }
         };
         fetchSalas();
-    }, []);
+    }, [curso_id, salaCreada]);
 
     const handleEnterRoom = (sala_id) => {
         console.log(`Entrar a la sala con id: ${sala_id}`);
+    };
+
+    const handleCloseModal = () => {
+        setmodalCrearSala(false);
+    };
+
+    const handleSalaCreada = () => {
+        setSalaCreada(true);
     };
 
     if (salas.length === 0) {
@@ -73,8 +86,8 @@ const MenuSalas = () => {
                         ))}
                     </div>
                 </section>
+                {modalCrearSala && <CreateSalasModal onClose={handleCloseModal} onCreate={handleSalaCreada} cursoId={curso_id} />} 
 
-                {modalCrearSala && <CreateSalasModal onClose={() => setModalCrearSala(false)} />}
             </div>
         </>
     );
