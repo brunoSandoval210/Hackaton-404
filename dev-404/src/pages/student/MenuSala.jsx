@@ -42,7 +42,6 @@ const MenuSala = () => {
         in_progress: [],
         done: []
     });
-    const navigate = useNavigate();
     // useEffect(() => {
     //     const fetchTasks = async () => {
     //         try {
@@ -128,7 +127,7 @@ const MenuSala = () => {
             <div className='cont-bot'>
                 <button onClick={() => {setShowCrear(true);}}>Crear Tarea</button>
             </div>
-           
+            {showModal && <TaskModal task={selectedTask} onClose={() => setShowModal(false)} />}
             {showCrear && <ModalCrear onClose={() => setShowCrear(false)} />}
         </div>
             
