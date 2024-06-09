@@ -35,7 +35,7 @@ header {
 
 /*nav bar*/
 .sidebar .menu-item {
-  height: 60px; /* Ajusta la altura según tus necesidades */
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,23 +43,17 @@ header {
 
 .sidebar .menu-item svg,
 .sidebar .menu-item i {
-  font-size: 30px; /* Asegúrate de que el tamaño de los íconos sea consistente */
+  font-size: 30px;
 }
+
 .sidebar {
-    width: 100px;
-    height: 100vh;
-    background-color: #000f37;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-}
-
-
-.logo img {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 100px;
+  background-color: #000F37;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
 }
 
 .menu {
@@ -83,12 +77,173 @@ header {
 }
 
 .menu-item.active, .menu-item:hover {
-  background-color: #004080;
+  background-color: #F2F4F8;
+  color: black;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.notifications {
+  position: relative;
+}
+
+.notifications .icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.notifications span {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.main-section {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
+  background-color: #e6f0ff;
+}
+
+.chat-section, .new-message-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.create-btn, .btn-general {
+  background-color: #000F37;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filter {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/*********************************************************************/
+/*Teacher menu card*/
+
+.container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+  margin: 0;
+}
+
+.card {
+  width: 18rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  position: relative;
+  height: 150px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #d9534f;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.tutor-info {
+  display: flex;
+  align-items: center;
+}
+
+.tutor-info img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 
 /*********************************************************************/
 /*main students*/
+/*menu students*/
 
 .container-menu-alumno{
     width: 100vw;
@@ -146,6 +301,9 @@ header {
   margin: 0px;
   padding: 0px;
 }
+.container-menu-alumno .container-salas .container-salas-row .target-sala .content-target h3{
+  font-weight: bold;
+}
 .container-menu-alumno .container-salas .container-salas-row .target-sala .button-sala{
   width: auto;
   height: 30px;
@@ -157,4 +315,107 @@ header {
   font-family: var(--font-primary);
   font-size: var(--size-button-title);
   cursor: pointer;
+}
+
+/*menu task*/
+
+/* container-menu-sala
+container-backlog
+backlog-column
+task
+container-chat */
+.container-menu-sala{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  background: var(--bg-utp);
+}
+.container-menu-sala .container-backlog{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 65vw;
+  margin: 20px ;
+}
+.container-menu-sala .container-backlog .backlog-colum{
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: calc(70vh - 40px);
+  background: var(--bg-white);
+  border-radius: 10px;
+  margin: 0 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.container-menu-sala .container-backlog .backlog-colum h2{
+  font-family: var(--font-primary);
+  font-size: var(--size-title);
+  color: var(--text-color-blac);
+  margin: 10px 0px;
+  padding: 0px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--bg-blue);
+  border-radius: 30px;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.container-menu-sala .container-backlog .backlog-colum .task .tittle-task{
+  font-family: var(--font-primary);
+  font-size: var(--size-title);
+  color: var(--text-color-blac);
+  margin: 0px;
+  padding: 0px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .description-task{
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--text-color-blac);
+  margin: 0px;
+  padding: 0px;
+  text-align: justify;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .description-task span{
+  font-size: 12px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p{
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--text-color-blac);
+  margin: 0px;
+  margin-top: 5px;
+  padding: 0px;
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-pending,
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-process,
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-done{
+  border-radius: 30px;
+  padding: 5px 10px;
+  border: 1px solid var(--bg-blue);
+}
+
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-pending{
+  background: var(--bg-blue);
+  color: var(--bg-white);
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-process{
+  background: var(--bg-light-blue);
+  color: var(--bg-blue);
+}
+.container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-done{
+  background: var(--bg-utp);
+  color: var(--bg-blue);
 }
