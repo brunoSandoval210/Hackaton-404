@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TaskModal from './TaskModal.jsx';
+import { useNavigate } from "react-router-dom";
+import ModalCrear from './ModalCrear.jsx';
+import FormularioCrearTarea from './FormularioCrear.jsx';
+
 const mockData = [
     {
       id: 1,
@@ -60,7 +64,8 @@ const MenuSala = () => {
     // }, []);
     const [showModal, setShowModal] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
-
+    const [showCrear, setShowCrear] = useState(false);
+    
     useEffect(() => {
         const fetchTasks = async () => {
             // Simula la obtención de datos
@@ -80,7 +85,8 @@ const MenuSala = () => {
     return (
         
         <div className='container-menu-sala'>
-            <div className='container-backlog'>
+         <div className='container-back-but'>
+             <div className='container-backlog'>
                 <div className='backlog-colum'>
                     <h2>Pendientes</h2>
                     {tasks.pending.map(task => (
@@ -96,7 +102,7 @@ const MenuSala = () => {
                 <div className='backlog-colum'>
                     <h2>En proceso</h2>
                     {tasks.in_progress.map(task => (
-                        <div key={task.id} className='task'>
+                        <div key={task.id} className='task' onClick={() => {setSelectedTask(task); setShowModal(true);}}>
                             <h3 className='title-task'>{task.title}</h3>
                             {/* <p className='description-task'>descripcion: <span>{task.description}</span></p> */}
                             <div className='container-status-task'>
@@ -108,7 +114,7 @@ const MenuSala = () => {
                 <div className='backlog-colum'>
                     <h2>Hechas</h2>
                     {tasks.done.map(task => (
-                        <div key={task.id} className='task'>
+                        <div key={task.id} className='task' onClick={() => {setSelectedTask(task); setShowModal(true);}}>
                             <h3 className='title-task'>{task.title}</h3>
                             {/* <p className='description-task'>descripcion: <span>{task.description}</span></p> */}
                             <div className='container-status-task'>
@@ -117,30 +123,110 @@ const MenuSala = () => {
                         </div>
                     ))}
                 </div>
-                {showModal && <TaskModal task={selectedTask} onClose={() => setShowModal(false)} />}
+             </div>
+            <div className='cont-bot'>
+                <button onClick={() => {setShowCrear(true);}}>Crear Tarea</button>
             </div>
+            {showCrear && <ModalCrear onClose={() => setShowCrear(false)} />}
+        </div>
+            
             <div className='container-chat'>
-                <h2>Chat</h2>
-                <div className='chat'>
-                    <div className='message'>
-                        <p className='user-name'>Usuario</p>
-                        <p className='message-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div className='userdata'> 
+                    <div className='cont-perfil'>
+                        <div className="foto-perfil">
+                            <img src="src/perfil.png"></img>
+                        </div>
                     </div>
-                    <div className='message'>
-                        <p className='user-name'>Usuario</p>
-                        <p className='message-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </div>
-                    <div className='message'>
-                        <p className='user-name'>Usuario</p>
-                        <p className='message-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div className="cont-nombre">
+                        <p>Nombre Nombre 
+                        Apellido apellido </p>
                     </div>
                 </div>
-                <form className='form-chat'>
-                    <input type='text' placeholder='Escribe un mensaje' />
-                    <button type='submit'>Enviar</button>
-                </form>
+                
+                <div className='chat'>
+                    <div className='chat-datos'>
+                        <div className='cc-perfil'>
+                            <img src="src/perfil.png"></img>
+                            
+                        </div>
+                        <div className="cc-mensaje">
+                            <div className='nombre'>
+                               Alumno Apellido apellido, hora
+                            </div>
+                            <div className="mensaje">
+                               *Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore corporis eius quia ducimus assumenda beatae placeat fugiat quasi quaerat amet, rem quisquam sed veniam officiis quas, odio, porro error.
+                               Ducimus dolorum quasi optio officia autem porro in iusto quidem pariatur eum odio asperiores voluptatem veniam alias incidunt, est ratione repellat. Unde repellat aliquam praesentium, corrupti nesciunt laboriosam tempora dolores?
+                               Recusandae molestias beatae earum facere quisquam sint magni maiores praesentium delectus dignissimos iusto aliquam error tempora, repellat vel repudiandae, inventore nihil nam! Eveniet voluptas provident velit unde alias eum quas.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='chat-datos'>
+                        <div className='cc-perfil'>
+                            <img src="src/perfil.png"></img>
+                            
+                        </div>
+                        <div className="cc-mensaje">
+                            <div className='nombre'>
+                               Alumno Apellido apellido, hora
+                            </div>
+                            <div className="mensaje">
+                               *Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore corporis eius quia ducimus assumenda beatae placeat fugiat quasi quaerat amet, rem quisquam sed veniam officiis quas, odio, porro error.
+                               Ducimus praesentium delectus dignissimos iusto aliquam error tempora, repellat vel repudiandae, inventore nihil nam! Eveniet voluptas provident velit unde alias eum quas.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='chat-datos'>
+                        <div className='cc-perfil'>
+                            <img src="src/perfil.png"></img>
+                            
+                        </div>
+                        <div className="cc-mensaje">
+                            <div className='nombre'>
+                               Alumno Apellido apellido, hora
+                            </div>
+                            <div className="mensaje">
+                               *Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore corporis eius quia ducimus assumenda beatae placeat fugiat quasi quaerat amet, rem quisquam sed veniam officiis quas, odio, porro error.
+                               Ducimus doloruissimos iusto aliquam error tempora, repellat vel repudiandae, inventore nihil nam! Eveniet voluptas provident velit unde alias eum quas.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='chat-datos-b'>
+                        <div className='cc-perfil'>
+                            <img src="src/perfil.png"></img>
+                            
+                        </div>
+                        <div className="cc-mensaje">
+                            <div className='nombre'>
+                               Tú, hora
+                            </div>
+                            <div className="mensaje">
+                               *Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore corporis eius quia ducimus assumenda beatae placeat fugiat quasi quaerat amet, rem quisquam sed veniam officiis quas, odio, porro error.
+                               praesentium delectus dignissimos iusto aliquam error tempora, repellat vel repudiandae, inventore nihil nam! Eveniet voluptas provident velit unde alias eum quas.
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div className="cont-envio">
+                    <div className="cont-input">
+                        <input type='text' placeholder='Escribe un mensaje' />
+                        <input type='file'/>
+                    </div>
+                <div className="cont-boton-env">
+                    <form>
+                    <button type='submit'>Enviar</button> 
+                    </form>
+                </div>
+                
+                </div>
+                
             </div>
+            
         </div>
+        
     );
 };
 

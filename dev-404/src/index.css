@@ -369,7 +369,29 @@ header {
   justify-content: center;
   width: 65vw;
   margin: 20px ;
+  
 }
+.container-menu-sala .container-chat{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.cont-bot{
+  text-align: right;
+  margin:0px 30px 0px 0px;
+}
+
+.cont-bot button{
+  background-color: #0661fc;
+  height: 35px;
+  
+  color:#FFFFFF;
+}
+.cont-bot button:hover{
+  background-color: #283044;
+}
+
 .container-menu-sala .container-backlog .backlog-colum{
   display: flex;
   flex-direction: column;
@@ -454,6 +476,12 @@ header {
   background: var(--bg-utp);
   color: var(--bg-blue);
 }
+
+
+.container-menu-sala .cont-bot button{
+  border-radius: 10px;
+}
+
 .prueba{
   z-index: 9999;
 }
@@ -512,3 +540,135 @@ header {
   text-decoration: none;
   cursor: pointer;
 }
+
+.userdata{
+  margin-top:20px;
+  display:flex;
+  background-color: #FFFFFF;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.foto-perfil{
+  padding: 10px;
+  
+
+}
+.cont-nombre{
+  display: flex;
+
+  padding: 10px 10px 10px 10px;
+ 
+}
+.chat{
+  display: flex;
+  flex-direction: column;
+  margin-top:10px;
+  height: 70vh ;
+  border-radius: 5px;
+  background-color: #e1e5eb;
+  overflow-y: auto;
+}
+
+.chat-datos{
+  display:flex;
+  width: 310px;
+  height: auto;
+}
+.chat-datos-b{
+  display: flex;
+  width: 310px;
+  height: auto;
+}
+.chat-datos-b .cc-perfil{visibility: hidden;}
+
+.chat-datos-b .mensaje{background-color: #b7e4ff;}
+
+.cc-mensaje{
+  display: flex;
+  flex-direction:column ;
+  flex-grow: 1;
+}
+
+.nombre{
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.mensaje{
+  background-color: #FFFFFF;
+  
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 6px;
+}
+.cuenta-mensaje{
+  display:flex;
+  width: 300px;
+  height: 30px;
+
+}
+
+.cont-envio{
+  display: flex;
+  background-color: #FFFFFF;
+  justify-content: space-between;
+  height: 90px;
+  border-radius: 6px;
+
+}
+.cont-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont-boton-env{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont-input input{
+  
+  width: 280px;
+  height: 35px;
+  border-radius: 6px;
+}
+.cont-input input[type="file"]{
+  display: none;
+
+}
+
+.cont-boton-env button{ 
+  background-color: #0661fc;
+  border-radius: 6px;
+  height: 35px;
+  width: 80px;
+  color:#FFFFFF;
+}
+
+.cont-boton-env button:hover{
+  background-color: #283044;
+}
+
+
+/*formulario de creacion de tarea*/
+
+.modal-crear{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content-crear{
+  background-color: white;
+  margin: 15% auto; /* Centra el modal verticalmente y lo separa del borde superior */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del modal */
+}
+
