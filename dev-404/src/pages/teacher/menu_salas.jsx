@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CreateSalasModal from './create_salas_modal.jsx';
 
 const MenuSalas = () => {
     const [salas, setSalas] = useState([]);
     const navigate = useNavigate();
+    const [modalCrearSala, setmodalCrearSala] = useState([false]); 
 
     useEffect(() => {
         const fetchSalas = async () => {
@@ -46,7 +48,7 @@ const MenuSalas = () => {
                     <div className="chat-section">
                         <div className="chat-header">
                             <h2>Salas de Trabajo</h2>
-                            <button className="create-btn" onClick={() => console.log('Mostrar modal para crear salas')}>
+                            <button className="create-btn" onClick={() => {setmodalCrearSala(true)}}>
                                 Crear Salas +
                             </button>
                         </div>
@@ -69,6 +71,8 @@ const MenuSalas = () => {
                         ))}
                     </div>
                 </section>
+
+                {modalCrearSala && <CreateSalasModal onClose={()=> setmodalCrearSala(false)}/>}
             </div>
         </>
     );

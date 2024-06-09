@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const MenuProfesor = () => {
     const [cursos, setCursos] = useState([]);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         // Simula una llamada a la API para obtener los datos de los cursos
@@ -50,6 +52,7 @@ const MenuProfesor = () => {
         salaProfesor(curso);
     };
 
+
     return (
         <div className="container-menu-profesor">
             <div className="header">
@@ -79,6 +82,9 @@ const MenuProfesor = () => {
                     </div>
                 </div>
             ))}
+
+           
+
         </div>
     );
 };
