@@ -5,12 +5,15 @@ import CreateSalasModal from './create_salas_modal.jsx';
 const MenuSalas = () => {
     const [salas, setSalas] = useState([]);
     const navigate = useNavigate();
-    const [modalCrearSala, setmodalCrearSala] = useState([false]); 
+    const [modalCrearSala, setmodalCrearSala] = useState([false]);
+    const [salaCreada, setSalaCreada] = useState(false);
+
+    var curso_id = 2;
 
     useEffect(() => {
         const fetchSalas = async () => {
             try {
-                const response = await fetch('http://localhost:3001/api/rooms/get_salas_by_courses/2');
+                const response = await fetch(`http://localhost:3001/api/rooms/get_salas_by_courses/${curso_id}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -22,10 +25,18 @@ const MenuSalas = () => {
             }
         };
         fetchSalas();
-    }, []);
+    }, [curso_id, salaCreada]);
 
     const handleEnterRoom = (sala_id) => {
         console.log(`Entrar a la sala con id: ${sala_id}`);
+    };
+
+    const handleCloseModal = () => {
+        setmodalCrearSala(false);
+    };
+
+    const handleSalaCreada = () => {
+        setSalaCreada(true);
     };
 
     if (salas.length === 0) {
@@ -72,7 +83,7 @@ const MenuSalas = () => {
                     </div>
                 </section>
 
-                {modalCrearSala && <CreateSalasModal onClose={()=> setmodalCrearSala(false)}/>}
+                {modalCrearSala && <CreateSalasModal onClose={handleCloseModal} onCreate={handleSalaCreada} cursoId={curso_id} />} 
             </div>
         </>
     );
