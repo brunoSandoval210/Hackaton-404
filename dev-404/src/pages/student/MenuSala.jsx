@@ -128,7 +128,7 @@ const MenuSala = () => {
                 <button onClick={() => {setShowCrear(true);}}>Crear Tarea</button>
             </div>
             {showModal && <TaskModal task={selectedTask} onClose={() => setShowModal(false)} />}
-            {showCrear && <ModalCrear  onClose={() => setShowCrear(false)} />}
+            {showCrear && <ModalCrear onClose={() => setShowCrear(false)} />}
         </div>
             
             <div className='container-chat'>
