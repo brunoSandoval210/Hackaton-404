@@ -35,7 +35,7 @@ header {
 
 /*nav bar*/
 .sidebar .menu-item {
-  height: 60px; /* Ajusta la altura según tus necesidades */
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,23 +43,17 @@ header {
 
 .sidebar .menu-item svg,
 .sidebar .menu-item i {
-  font-size: 30px; /* Asegúrate de que el tamaño de los íconos sea consistente */
+  font-size: 30px;
 }
+
 .sidebar {
-    width: 100px;
-    height: 100vh;
-    background-color: #000f37;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-}
-
-
-.logo img {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 100px;
+  background-color: #000F37;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
 }
 
 .menu {
@@ -83,7 +77,99 @@ header {
 }
 
 .menu-item.active, .menu-item:hover {
-  background-color: #004080;
+  background-color: #F2F4F8;
+  color: black;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.notifications {
+  position: relative;
+}
+
+.notifications .icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.notifications span {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.main-section {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
+  background-color: #e6f0ff;
+}
+
+.chat-section, .new-message-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.create-btn, .btn-general {
+  background-color: #000F37;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filter {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/*********************************************************************/
+/*Teacher menu*/
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
 }
 
 
