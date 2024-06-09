@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const MenuProfesor = () => {
     const [cursos, setCursos] = useState([]);
@@ -7,12 +7,12 @@ const MenuProfesor = () => {
         // Simula una llamada a la API para obtener los datos de los cursos
         const fetchCursos = async () => {
             const cursosData = [
-                { id: 1, title: 'Conoce Utp+class Marzo 2024', description: '30019 - Virtual 24/7', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png', progress: '25%' },
-                { id: 2, title: 'Curso 2', description: '30020 - Presencial', imgSrc: 'https://via.placeholder.com/150', progress: '50%' },
-                { id: 3, title: 'Curso 3', description: '30021 - Mixto', imgSrc: 'https://via.placeholder.com/150', progress: '75%' },
-                { id: 4, title: 'Curso 4', description: '30022 - Virtual', imgSrc: 'https://via.placeholder.com/150', progress: '100%' },
-                { id: 5, title: 'Curso 5', description: '30023 - Presencial', imgSrc: 'https://via.placeholder.com/150', progress: '20%' },
-                { id: 6, title: 'Curso 6', description: '30024 - Mixto', imgSrc: 'https://via.placeholder.com/150', progress: '40%' }
+                { id: 1, title: 'Conoce Utp+class Marzo 2024', description: '30019 - Virtual 24/7', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png'},
+                { id: 2, title: 'Curso 2', description: '30020 - Presencial', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png' },
+                { id: 3, title: 'Curso 3', description: '30021 - Mixto', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png' },
+                { id: 4, title: 'Curso 4', description: '30022 - Virtual', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png' },
+                { id: 5, title: 'Curso 5', description: '30023 - Presencial', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png' },
+                { id: 6, title: 'Curso 6', description: '30024 - Mixto', imgSrc: 'https://class.utp.edu.pe/static/media/course24%E2%81%847.c43c482e.png' }
             ];
             setCursos(cursosData);
         };
@@ -34,43 +34,37 @@ const MenuProfesor = () => {
     }
 
     return (
-        <>
-            <div className="col-md-9 ms-sm-3 col-lg-11 px-md-4">
-                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2>Mis cursos</h2>
-                    <div className="btn-toolbar mb-2 mb-md-0">
-                        <div className="btn-group me-2">
-                            <select className="form-select">
-                                <option>2024 - Ciclo 1 Marzo PREG (001) (Actual)</option>
-                                {/* Más opciones */}
-                            </select>
-                        </div>
-                    </div>
+        <div className="container-menu-profesor">
+            <div className="header">
+                <h2>Mis cursos</h2>
+                <div className="toolbar">
+                    <select>
+                        <option>2024 - Ciclo 1 Marzo PREG (001) (Actual)</option>
+                        {/* Más opciones */}
+                    </select>
                 </div>
+            </div>
 
-                {groupedCursos.map((group, groupIndex) => (
-                    <div key={groupIndex} className="row mb-4">
+            {groupedCursos.map((group, groupIndex) => (
+                <div key={groupIndex} className="cardd-group-container">
+                    <div className="cardd-group">
                         {group.map(curso => (
-                            <div key={curso.id} className="col-md-4">
-                                <div className="card mb-4">
-                                    <div className="card-img-top shadow-sm">
-                                        <img src={curso.imgSrc} alt={`Curso ${curso.id}`} />
-                                        <div className="progress-bar">{curso.progress}</div>
-                                    </div>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{curso.title}</h5>
-                                        <p className="card-text">{curso.description}</p>
-                                        <div className="tutor-info">
-                                            <small className="text-muted">{curso.tutor}</small>
-                                        </div>
-                                    </div>
+                            <div key={curso.id} className="cardd">
+                                <div className="cardd-img-top">
+                                    <img src={curso.imgSrc} alt={curso.title} />
+                                    
+                                </div>
+                                <div className="cardd-body">
+                                    <h5 className="cardd-title">{curso.title}</h5>
+                                    <p className="cardd-text">{curso.description}</p>
+                                    
                                 </div>
                             </div>
                         ))}
                     </div>
-                ))}
-            </div>
-        </>
+                </div>
+            ))}
+        </div>
     );
 };
 
