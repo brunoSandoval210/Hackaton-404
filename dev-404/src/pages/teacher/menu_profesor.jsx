@@ -2,20 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCursos_profesor } from './../../services/apiServiceTeacher.js';
 
-
 const MenuProfesor = () => {
     const [cursos, setCursos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     
-
     useEffect(() => {
-        const id_profesor = 1;
+        const id_profesor = 1; // Cambia esto según sea necesario
         const getCursos = async () => {
             try {
                 const response = await fetchCursos_profesor(id_profesor);
-                console.log(response);
                 if (response.error) {
                     throw new Error('Error al obtener los cursos');
                 }
@@ -45,10 +42,10 @@ const MenuProfesor = () => {
     if (error) {
         return <div>Error: {error}</div>; // Muestra el error si hay problemas con la API
     }
+
     const handleCursoClick = (curso) => {
         navigate('/menu_salas_profesor', { state: { curso } });
     };
-
 
     return (
         <div className="container-menu-profesor">
@@ -66,9 +63,9 @@ const MenuProfesor = () => {
                 <div key={groupIndex} className="cardd-group-container">
                     <div className="cardd-group">
                         {group.map(curso => (
-                            <div key={curso.id} className="cardd" onClick={() => handleCursoClick(curso)}>
+                            <div key={curso.id_curso} className="cardd" onClick={() => handleCursoClick(curso)}>
                                 <div className="cardd-img-top">
-                                    <img src={curso.img} />
+                                    <img src={curso.img} alt={curso.nombre_curso} />
                                 </div>
                                 <div className="cardd-body">
                                     <h5 className="cardd-title">{curso.nombre_curso}</h5>
@@ -79,12 +76,8 @@ const MenuProfesor = () => {
                     </div>
                 </div>
             ))}
-
-           
-
         </div>
     );
 };
 
 export default MenuProfesor;
-

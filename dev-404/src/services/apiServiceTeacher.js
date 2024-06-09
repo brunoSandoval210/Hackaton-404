@@ -7,21 +7,12 @@ const fetchCursos_profesor = async (id_profesor) => {
     }
     return await response.json();
 };
-
-const fetchSalas = async (id_curso) => {
-    const response = await fetch(`${API_BASE_URL}/api/rooms/${id_curso}`);
+const fetchSalas_curso = async (id_curso) => {
+    const response = await fetch(`${API_BASE_URL}/api/rooms/get_salas_by_courses/${id_curso}`);
     if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('No se pudo obtener la lista de cursos');
     }
     return await response.json();
 };
 
-const fetchAlumnos = async (id_sala) => {
-    const response = await fetch(`${API_BASE_URL}/api/students/${id_sala}`);
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return await response.json();
-};
-
-export { fetchCursos_profesor, fetchSalas, fetchAlumnos };
+export { fetchCursos_profesor , fetchSalas_curso};
