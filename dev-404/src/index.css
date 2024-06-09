@@ -186,8 +186,9 @@ container-chat */
 .container-menu-sala .container-backlog .backlog-colum{
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 30vw;
-  height: calc(70vh - 40px);
+  height: calc(100vh - 100px);
   background: var(--bg-white);
   border-radius: 10px;
   margin: 0 10px;
@@ -205,8 +206,8 @@ container-chat */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 120px;
   border: 1px solid var(--bg-blue);
   border-radius: 30px;
   margin: 10px 0;
@@ -251,6 +252,7 @@ container-chat */
   border-radius: 30px;
   padding: 5px 10px;
   border: 1px solid var(--bg-blue);
+  margin-left: 10px;
 }
 
 .container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-pending{
@@ -264,4 +266,39 @@ container-chat */
 .container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-done{
   background: var(--bg-utp);
   color: var(--bg-blue);
+}
+.prueba{
+  z-index: 9999;
+}
+.modal-task{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content-task{
+  background-color: white;
+  margin: 15% auto; /* Centra el modal verticalmente y lo separa del borde superior */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
