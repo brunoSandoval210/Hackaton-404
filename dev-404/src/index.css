@@ -144,7 +144,7 @@ header {
 }
 
 .create-btn, .btn-general {
-  background-color: #000F37;
+  background-color: #0661fc;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -163,82 +163,165 @@ header {
 /*********************************************************************/
 /*Teacher menu card*/
 
-.container {
-  font-family: Arial, sans-serif;
+/* Estilos salas */
+
+.row {
   display: flex;
-  justify-content: center;
+  padding-top: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.col {
+  flex: 1 0 30%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+.room-carddd {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
-  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.room-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.room-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.room-button {
+  background-color: #0661fc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.room-button:hover {
+  background-color: #062066;
+}
+
+/* MenuProfesor.css */
+
+.container-menu-profesor {
+  padding: 0px;
+  font-family: Arial, sans-serif;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.header h2 {
   margin: 0;
 }
 
-.card {
-  width: 18rem;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.2s;
+.filter {
+  display: flex;
 }
 
-.card:hover {
+.form-select {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.cardd-group-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cardd-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.cardd {
+  background: white;
+  border-radius: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: 0px;
+  transition: transform 0.3s;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.cardd:hover {
   transform: scale(1.05);
 }
 
-.card-img-top {
+.cardd-img-top {
   position: relative;
-  height: 150px;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.card-img-top img {
+.cardd-img-top img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
-.progress-bar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #d9534f;
-  color: #fff;
-  padding: 2px 5px;
-  border-radius: 5px;
-  font-size: 12px;
+
+.cardd-body {
+  padding: 20px;
 }
 
-.card-body {
-  padding: 15px;
-  background-color: #fff;
+.cardd-title {
+  font-size: 1.2em;
+  margin: 0;
 }
 
-.card-title {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.card-text {
-  color: #6c757d;
-  font-size: 14px;
-  margin-bottom: 10px;
+.cardd-text {
+  color: gray;
 }
 
 .tutor-info {
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .tutor-info img {
   width: 20px;
   height: 20px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
+
+.text-muted {
+  color: gray;
+}
+
+@media (max-width: 1200px) {
+  .cardd {
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardd {
+    max-width: 100%;
+  }
+}
+
+
 
 
 /*********************************************************************/
@@ -319,11 +402,6 @@ header {
 
 /*menu task*/
 
-/* container-menu-sala
-container-backlog
-backlog-column
-task
-container-chat */
 .container-menu-sala{
   display: flex;
   flex-direction: row;
@@ -336,12 +414,35 @@ container-chat */
   justify-content: center;
   width: 65vw;
   margin: 20px ;
+  
 }
+.container-menu-sala .container-chat{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.cont-bot{
+  text-align: right;
+  margin:0px 30px 0px 0px;
+}
+
+.cont-bot button{
+  background-color: #0661fc;
+  height: 35px;
+  
+  color:#FFFFFF;
+}
+.cont-bot button:hover{
+  background-color: #283044;
+}
+
 .container-menu-sala .container-backlog .backlog-colum{
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 30vw;
-  height: calc(70vh - 40px);
+  height: calc(100vh - 100px);
   background: var(--bg-white);
   border-radius: 10px;
   margin: 0 10px;
@@ -359,8 +460,8 @@ container-chat */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 120px;
   border: 1px solid var(--bg-blue);
   border-radius: 30px;
   margin: 10px 0;
@@ -405,6 +506,7 @@ container-chat */
   border-radius: 30px;
   padding: 5px 10px;
   border: 1px solid var(--bg-blue);
+  margin-left: 10px;
 }
 
 .container-menu-sala .container-backlog .backlog-colum .task .container-status-task p .status-task-pending{
@@ -419,3 +521,199 @@ container-chat */
   background: var(--bg-utp);
   color: var(--bg-blue);
 }
+
+
+.container-menu-sala .cont-bot button{
+  border-radius: 10px;
+}
+
+.prueba{
+  z-index: 9999;
+}
+.modal-task{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content-task{
+  background-color: var(--bg-utp);
+  border-radius: 30px;
+  margin: 15% auto; /* Centra el modal verticalmente y lo separa del borde superior */
+  padding: 20px;
+  width: 30%; /* Ancho del modal */
+  height: 400px;
+}
+
+.modal-content-task h2{
+  font-family: var(--font-primary);
+  font-size: var(--size-title);
+  color: var(--text-color-blac);
+  margin: 0px;
+  padding: 0px;
+}
+.modal-content-task p{
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--text-color-blac);
+}
+.modal-content-task .description-content{
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--text-color-blac);
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 200px;
+  border: 1px solid var(--bg-blue);
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.userdata{
+  margin-top:20px;
+  display:flex;
+  background-color: #FFFFFF;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.foto-perfil{
+  padding: 10px;
+  
+
+}
+.cont-nombre{
+  display: flex;
+
+  padding: 10px 10px 10px 10px;
+ 
+}
+.chat{
+  display: flex;
+  flex-direction: column;
+  margin-top:10px;
+  height: 70vh ;
+  border-radius: 5px;
+  background-color: #e1e5eb;
+  overflow-y: auto;
+}
+
+.chat-datos{
+  display:flex;
+  width: 310px;
+  height: auto;
+}
+.chat-datos-b{
+  display: flex;
+  width: 310px;
+  height: auto;
+}
+.chat-datos-b .cc-perfil{visibility: hidden;}
+
+.chat-datos-b .mensaje{background-color: #b7e4ff;}
+
+.cc-mensaje{
+  display: flex;
+  flex-direction:column ;
+  flex-grow: 1;
+}
+
+.nombre{
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.mensaje{
+  background-color: #FFFFFF;
+  
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 6px;
+}
+.cuenta-mensaje{
+  display:flex;
+  width: 300px;
+  height: 30px;
+
+}
+
+.cont-envio{
+  display: flex;
+  background-color: #FFFFFF;
+  justify-content: space-between;
+  height: 90px;
+  border-radius: 6px;
+
+}
+.cont-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont-boton-env{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont-input input{
+  
+  width: 280px;
+  height: 35px;
+  border-radius: 6px;
+}
+.cont-input input[type="file"]{
+  display: none;
+
+}
+
+.cont-boton-env button{ 
+  background-color: #0661fc;
+  border-radius: 6px;
+  height: 35px;
+  width: 80px;
+  color:#FFFFFF;
+}
+
+.cont-boton-env button:hover{
+  background-color: #283044;
+}
+
+
+/*formulario de creacion de tarea*/
+
+.modal-crear{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content-crear{
+  background-color: white;
+  margin: 15% auto; /* Centra el modal verticalmente y lo separa del borde superior */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del modal */
+}
+
