@@ -83,7 +83,6 @@ const MenuSala = () => {
 
         fetchTasks();
     }, []);
-    console.log(showModal, selectedTask)
     return (
         
         <div className='container-menu-sala'>
@@ -100,9 +99,6 @@ const MenuSala = () => {
                             </div>
                         </div>
                     ))}
-                </div>
-                <div className='prueba'>
-                {showModal && <TaskModal task={selectedTask} onClose={() => setShowModal(false)} />}
                 </div>
                 <div className='backlog-colum'>
                     <h2>En proceso</h2>
