@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import TaskModal from './TaskModal.jsx';
-import { useNavigate } from "react-router-dom";
 const mockData = [
     {
       id: 1,
@@ -39,7 +38,6 @@ const MenuSala = () => {
         in_progress: [],
         done: []
     });
-    const navigate = useNavigate();
     // useEffect(() => {
     //     const fetchTasks = async () => {
     //         try {
