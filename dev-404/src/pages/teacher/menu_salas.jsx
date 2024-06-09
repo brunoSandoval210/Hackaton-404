@@ -7,22 +7,23 @@ const MenuSalas = () => {
 
     useEffect(() => {
         const fetchSalas = async () => {
-            const salasData = [
-                { id: 1, title: 'Sala 1', description: 'Esta es una descripción breve de la Sala 1.' },
-                { id: 2, title: 'Sala 2', description: 'Esta es una descripción breve de la Sala 2.' },
-                { id: 3, title: 'Sala 3', description: 'Esta es una descripción breve de la Sala 3.' },
-                { id: 4, title: 'Sala 4', description: 'Esta es una descripción breve de la Sala 4.' },
-                { id: 5, title: 'Sala 5', description: 'Esta es una descripción breve de la Sala 5.' },
-                { id: 6, title: 'Sala 6', description: 'Esta es una descripción breve de la Sala 6.' }
-            ];
-            setSalas(salasData);
+            try {
+                const response = await fetch('http://localhost:3001/api/rooms/get_salas_by_courses/2');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                console.log(data);
+                setSalas(data.body);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
-
         fetchSalas();
     }, []);
 
-    const handleEnterRoom = (id) => {
-        console.log(`Entrar a la sala con id: ${id}`);
+    const handleEnterRoom = (sala_id) => {
+        console.log(`Entrar a la sala con id: ${sala_id}`);
     };
 
     if (salas.length === 0) {
@@ -53,13 +54,14 @@ const MenuSalas = () => {
                         {groupedSalas.map((group, groupIndex) => (
                             <div key={groupIndex} className="row">
                                 {group.map((sala) => (
-                                    <div key={sala.id} className="col">
+                                    <div key={sala.sala_id} className="col">
                                         <div className="room-carddd">
-                                            <h2 className="room-title">{sala.title}</h2>
+                                            <h2 className="room-title">{sala.sala_nombre}</h2>
                                             <p className="room-description">{sala.description}</p>
-                                            <button className="room-button" onClick={() => handleEnterRoom(sala.id)}>
+                                            <span>{sala.numero_participantes}/{sala.max_participantes}</span>
+                                            {/* <button className="room-button" onClick={() => handleEnterRoom(sala.sala_id)}>
                                                 Entrar
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                 ))}
