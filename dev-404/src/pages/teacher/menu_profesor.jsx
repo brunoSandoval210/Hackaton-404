@@ -5,12 +5,15 @@ import { fetchCursos_profesor } from './../../services/apiServiceTeacher.js';
 const MenuProfesor = () => {
     const [cursos, setCursos] = useState([]);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     
     useEffect(() => {
         const id_profesor = 1; // Cambia esto según sea necesario
         const getCursos = async () => {
             try {
                 const response = await fetchCursos_profesor(id_profesor);
+                console.log(response);
                 if (response.error) {
                     throw new Error('Error al obtener los cursos');
                 }
@@ -51,7 +54,7 @@ const MenuProfesor = () => {
             <div className="miscursos-content">
             <h2>Mis cursos</h2>
             <div className="filter-container">
-                <label for="course-filter">Filtrar por</label>
+                <label>Filtrar por</label>
                 <select id="course-filter">
                     <option>2024 - Ciclo 1 Marzo PREG (001) (Actual)</option>
                 </select>
@@ -62,7 +65,7 @@ const MenuProfesor = () => {
         
         </div>
 
-        <div class="course">
+        <div className="course">
             <p>2024 - Ciclo 1 Marzo PREG (001) (Actual)</p>
         </div>
 
@@ -76,8 +79,8 @@ const MenuProfesor = () => {
                                     <img src={curso.img} alt={curso.nombre_curso} />
                                 </div>
                                 <div className="cardd-body">
-                                    <h5 className="cardd-title">{curso.title}</h5>
-                                    <p className="cardd-text">{curso.description}</p>
+                                    <h5 className="cardd-title">{curso.nombre_curso}</h5>
+                                    <p className="cardd-text">{curso.descripcion}</p>
                                 </div>
                             </div>
                         ))}
