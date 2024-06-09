@@ -161,15 +161,83 @@ header {
 }
 
 /*********************************************************************/
-/*Teacher menu*/
+/*Teacher menu card*/
 
-.card img {
-  height: 200px;
+.container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+  margin: 0;
+}
+
+.card {
+  width: 18rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  position: relative;
+  height: 150px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-top img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
+.progress-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #d9534f;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
 .card-body {
-  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.tutor-info {
+  display: flex;
+  align-items: center;
+}
+
+.tutor-info img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 
