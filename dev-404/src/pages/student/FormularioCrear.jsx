@@ -22,27 +22,38 @@ const FormularioCrearTarea = ({onCreate}) => {
 
     return (
         <div className='modal-formulario'>
-            <div className='modal-content-formulario' style={{ backgroundColor: 'white' }}>
-                
-                <h2>Crear Tarea</h2>
+            <div className='modal-content-formulario'>
+                <h2>Crear tarea</h2>
                 <div className='form-group'>
-                    <label htmlFor='nombreTarea'>Nombre de la Tarea:</label>
+                    <div className="nombre-tarea">
+                        <label htmlFor='nombreTarea'>Nombre de la Tarea:</label>
+                    </div>
                     <input type='text' id='nombreTarea' value={nombreTarea} onChange={(e) => setNombreTarea(e.target.value)} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='descripcionTarea'>Descripción de la Tarea:</label>
+                    <div className="descripcion-tarea">
+                        <label htmlFor='descripcionTarea'>Descripción de la Tarea:</label>
+                    </div>
                     <textarea id='descripcionTarea' value={descripcionTarea} onChange={(e) => setDescripcionTarea(e.target.value)} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='asignadoA'>Asignado a:</label>
+                    <div className="asignadoA-tarea">
+                        <i class="fas fa-user icon"></i>
+                        <label htmlFor='asignadoA'>Asignado a:</label>
+                    </div>
+                    
                     <select id='Asignadoa' value={asignadoA} onChange={(e) => setAsignadoA(e.target.value)}>
+                        <option value="" disabled selected>Elija integrante</option>
                         <option value='pendiente'>Pendiente</option>
                         <option value='en_proceso'>En Proceso</option>
                         <option value='realizado'>Realizado</option>
                     </select>
+                    
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='estado'>Estado:</label>
+                    <div className="estado-tarea">
+                        <label htmlFor='estado'>Estado:</label>
+                    </div>
                     <select id='estado' value={estado} onChange={(e) => setEstado(e.target.value)}>
                         <option value='pendiente'>Pendiente</option>
                         <option value='en_proceso'>En Proceso</option>
@@ -51,11 +62,9 @@ const FormularioCrearTarea = ({onCreate}) => {
                 </div>
                 <div className="modal-form-botones">
                     <div className="boton">
-                        <button onClick={handleCrearTarea}>Crear</button>
+                        <button onClick={handleCrearTarea}>Crear tarea</button>
                     </div>
-                    <div className="boton">
-                    <button onClick={handleCrearTarea}>Cerrar</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>

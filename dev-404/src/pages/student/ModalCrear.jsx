@@ -1,6 +1,6 @@
 import React from 'react'
 import FormularioCrearTarea from './FormularioCrear.jsx';
-const ModalCrear = ({onClose}) => {
+const ModalCrear = ({onClose }) => {
     return (
         <div className='modal-crear'>
             <div className='modal-content-crear' style={{ backgroundColor: 'white' }}>
