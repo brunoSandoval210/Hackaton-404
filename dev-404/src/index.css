@@ -921,10 +921,64 @@ body {
 }
 
 .modal-content-crear{
-  background-color: white;
-  margin: 15% auto; /* Centra el modal verticalmente y lo separa del borde superior */
+  background-color: var(--bg-utp);
+  border-radius: 30px;
+  margin: 10% auto; /* Centra el modal verticalmente y lo separa del borde superior */
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Ancho del modal */
+  width: 25%; /* Ancho del modal */
+  height: auto;
 }
+.modal-formulario {
+  display:block;
+}
+.modal-formulario .form-group input{
+  border-radius: 20px;
+  width: 95%;
+  margin-top:5px;
+  margin-bottom: 20px;
+}
+.modal-formulario .form-group textarea{
+  width: 95%;
+  height: 95px;
+  border-radius: 20px;
+  border-width: 1.9px;
+  border-color: #000000;
+  margin-bottom: auto;
+}
+
+
+
+
+.estado-tarea{display: flex;}
+.nombre-tarea{display: flex;}
+.descripcion-tarea{display: flex;}
+.asignadoA-tarea{display: flex;}
+
+.modal-formulario .form-group select{
+  border-width:1.9px;
+  border-color: #000000;
+  display: flex;
+  border-radius: 20px;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.modal-form-botones{
+  margin-top: 20px;
+  text-align: right;
+}
+
+.modal-form-botones button{
+  border-radius: 20px;
+  width: 150px;
+  background-color: #0661fc;
+  color: #FFFFFF;
+
+}
+.modal-form-botones button:hover{
+  background-color: #283044;
+}
+
+.form-group i{font-size: 20px; padding-left: 3px; padding-right: 3px; };
+
 
