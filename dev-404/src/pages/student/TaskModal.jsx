@@ -1,4 +1,6 @@
 import React from 'react';
+
+
 const TaskModal = ({ task, onClose }) => {
     return (
         <div className='modal-task'>
