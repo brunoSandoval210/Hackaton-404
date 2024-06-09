@@ -144,7 +144,7 @@ header {
 }
 
 .create-btn, .btn-general {
-  background-color: #000F37;
+  background-color: #0661fc;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -163,9 +163,54 @@ header {
 /*********************************************************************/
 /*Teacher menu card*/
 
-/* Estilos generales */
-/* MenuProfesor.css */
+/* Estilos salas */
 
+.row {
+  display: flex;
+  padding-top: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.col {
+  flex: 1 0 30%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+.room-carddd {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.room-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.room-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.room-button {
+  background-color: #0661fc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.room-button:hover {
+  background-color: #062066;
+}
 
 /* MenuProfesor.css */
 
@@ -210,7 +255,7 @@ header {
 
 .cardd {
   background: white;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
