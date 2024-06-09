@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCursos_profesor } from './../../services/apiServiceTeacher.js';
 
+
 const MenuProfesor = () => {
     const [cursos, setCursos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         const id_profesor = 1;
@@ -47,6 +49,7 @@ const MenuProfesor = () => {
         navigate('/menu_salas_profesor', { state: { curso } });
     };
 
+
     return (
         <div className="container-menu-profesor">
             <div className="header">
@@ -76,6 +79,9 @@ const MenuProfesor = () => {
                     </div>
                 </div>
             ))}
+
+           
+
         </div>
     );
 };
