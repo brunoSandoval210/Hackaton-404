@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CreateSalasModal from './create_salas_modal.jsx';
 
 const MenuSalas = () => {
     const [salas, setSalas] = useState([]);
+    const [modalCrearSala, setModalCrearSala] = useState(false);
     const navigate = useNavigate();
-    const [modalCrearSala, setmodalCrearSala] = useState([false]); 
+    const location = useLocation();
+    const { curso } = location.state || { curso: null };
 
     useEffect(() => {
         const fetchSalas = async () => {
@@ -46,12 +48,12 @@ const MenuSalas = () => {
                 <section className="main-section">
                     <div className="chat-section">
                         <div className="chat-header">
-                            <h2>Salas de Trabajo</h2>
-                            <button className="create-btn" onClick={() => {setmodalCrearSala(true)}}>
+                            <h2>Salas de Trabajo </h2>
+                            <button className="create-btn" onClick={() => { setModalCrearSala(true) }}>
                                 Crear Salas +
                             </button>
                         </div>
-                        
+
                         {groupedSalas.map((group, groupIndex) => (
                             <div key={groupIndex} className="row">
                                 {group.map((sala) => (
@@ -70,7 +72,7 @@ const MenuSalas = () => {
                     </div>
                 </section>
 
-                {modalCrearSala && <CreateSalasModal onClose={()=> setmodalCrearSala(false)}/>}
+                {modalCrearSala && <CreateSalasModal onClose={() => setModalCrearSala(false)} />}
             </div>
         </>
     );
