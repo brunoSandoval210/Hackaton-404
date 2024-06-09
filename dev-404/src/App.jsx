@@ -20,7 +20,7 @@ function App() {
         {role === 'teacher' && (
           <Route path="/*" element={<TeacherLayout />}>
             <Route index element={<MenuProfesor />} />
-            <Route path="menu" element={<MenuSalas />} />
+            <Route path="menu_salas_profesor" element={<MenuSalas />} />
           </Route>
         )}
 
