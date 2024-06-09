@@ -4,8 +4,6 @@ import { fetchCursos_profesor } from './../../services/apiServiceTeacher.js';
 
 const MenuProfesor = () => {
     const [cursos, setCursos] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -27,7 +25,7 @@ const MenuProfesor = () => {
     }, []);
 
     const groupedCursos = cursos.reduce((acc, curso, index) => {
-        const groupIndex = Math.floor(index / 3);
+        const groupIndex = Math.floor(index / 4);
         if (!acc[groupIndex]) {
             acc[groupIndex] = [];
         }
@@ -49,18 +47,28 @@ const MenuProfesor = () => {
 
     return (
         <div className="container-menu-profesor">
-            <div className="header">
-                <h2>Mis cursos</h2>
-                <div className="toolbar">
-                    <select>
-                        <option>2024 - Ciclo 1 Marzo PREG (001) (Actual)</option>
-                        {/* Más opciones */}
-                    </select>
-                </div>
-            </div>
+            <div className="miscursos ">
+            <div className="miscursos-content">
+            <h2>Mis cursos</h2>
+            <div className="filter-container">
+                <label for="course-filter">Filtrar por</label>
+                <select id="course-filter">
+                    <option>2024 - Ciclo 1 Marzo PREG (001) (Actual)</option>
+                </select>
+                
+            </div>            
+        </div>
+        
+        
+        </div>
 
+        <div class="course">
+            <p>2024 - Ciclo 1 Marzo PREG (001) (Actual)</p>
+        </div>
+
+        
             {groupedCursos.map((group, groupIndex) => (
-                <div key={groupIndex} className="cardd-group-container">
+                <div key={groupIndex} className="cardd-group-container ">
                     <div className="cardd-group">
                         {group.map(curso => (
                             <div key={curso.id_curso} className="cardd" onClick={() => handleCursoClick(curso)}>
@@ -68,8 +76,8 @@ const MenuProfesor = () => {
                                     <img src={curso.img} alt={curso.nombre_curso} />
                                 </div>
                                 <div className="cardd-body">
-                                    <h5 className="cardd-title">{curso.nombre_curso}</h5>
-                                    <p className="cardd-text">{curso.descripcion}</p>
+                                    <h5 className="cardd-title">{curso.title}</h5>
+                                    <p className="cardd-text">{curso.description}</p>
                                 </div>
                             </div>
                         ))}
