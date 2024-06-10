@@ -42,26 +42,6 @@ const MenuSala = () => {
         in_progress: [],
         done: []
     });
-    // useEffect(() => {
-    //     const fetchTasks = async () => {
-    //         try {
-    //             const response = await fetch('https://api.example.com/tasks');
-    //             const data = await response.json();
-    //             const pendingTasks = data.filter(task => task.status === 'pending');
-    //             const inProgressTasks = data.filter(task => task.status === 'in_progress');
-    //             const doneTasks = data.filter(task => task.status === 'done');
-    //             setTasks({
-    //                 pending: pendingTasks,
-    //                 in_progress: inProgressTasks,
-    //                 done: doneTasks
-    //             });
-    //         } catch (error) {
-    //             console.error('Error fetching tasks:', error);
-    //         }
-    //     };
-
-    //     fetchTasks();
-    // }, []);
     const [showModal, setShowModal] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
     const [showCrear, setShowCrear] = useState(false);

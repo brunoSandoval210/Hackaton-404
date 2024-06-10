@@ -27,31 +27,13 @@ const MenuAlumno = () => {
         return acc;
     }, []);
 
-    // const handleJoinRoom = async (userId) => {
-    //     try {
-    //         // Llamar a la API para unirse a la sala
-    //         const response = await joinRoom(userId);
 
-    //         // Si la API responde correctamente, redirigir al menú de la sala
-    //         if (response.status === 'success') {
-    //             // Redirigir al menú de la sala (puedes usar history.push('/ruta-del-menu'))
-    //         } else {
-    //             // Manejar el caso en el que la API responda con un error
-    //         }
-    //     } catch (error) {
-    //         // Manejar errores de la llamada a la API
-    //     }
-    // };
 
     const unirseASala = () => {
-        // Llamada simulada a la API para unirse a la sala
-        // Aquí podrías hacer la lógica real de llamada a la API
-        // En este caso, simulamos una llamada exitosa
         const apiResponse = { success: true };
 
         if (apiResponse.success) {
-            // Si la llamada es exitosa, redirige al menú de la sala
-            navigate('/menu-sala'); // Cambia '/menu-sala' por la ruta real de tu menú de sala
+            navigate('/menu-sala');
         }
     };
     //Agrupa salas
