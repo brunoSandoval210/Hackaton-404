@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import CreateSalasModal from './create_salas_modal.jsx';
-import { fetchSalas_curso } from './../../services/apiServiceTeacher.js';
+
 
 const MenuSalas = () => {
-    const location = useLocation();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [salas, setSalas] = useState([]);
-    const [modalCrearSala, setModalCrearSala] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [modalCrearSala, setmodalCrearSala] = useState([false]);
     const [salaCreada, setSalaCreada] = useState(false);
-    const { curso } = location.state || { curso: null };
-    var curso_id = curso.id_curso;
-
+    const location = useLocation();
+    var id_curso = location.state.id_curso;
+    console.log(id_curso)
 
     useEffect(() => {
         const fetchSalas = async () => {
             try {
-                const response = await fetchSalas_curso(curso_id);
+                const response = await fetch(`http://localhost:3001/api/rooms/get_salas_by_courses/${id_curso}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -29,7 +27,7 @@ const MenuSalas = () => {
             }
         };
         fetchSalas();
-    }, [curso_id, salaCreada]);
+    }, [id_curso, salaCreada]);
 
     const handleEnterRoom = (sala_id) => {
         console.log(`Entrar a la sala con id: ${sala_id}`);
@@ -62,12 +60,12 @@ const MenuSalas = () => {
                 <section className="main-section">
                     <div className="chat-section">
                         <div className="chat-header">
-                            <h2>Salas de Trabajo </h2>
-                            <button className="create-btn" onClick={() => { setModalCrearSala(true) }}>
+                            <h2>Salas de Trabajo</h2>
+                            <button className="create-btn" onClick={() => {setmodalCrearSala(true)}}>
                                 Crear Salas +
                             </button>
                         </div>
-
+                        
                         {groupedSalas.map((group, groupIndex) => (
                             <div key={groupIndex} className="row">
                                 {group.map((sala) => (
@@ -86,8 +84,8 @@ const MenuSalas = () => {
                         ))}
                     </div>
                 </section>
-                {modalCrearSala && <CreateSalasModal onClose={handleCloseModal} onCreate={handleSalaCreada} cursoId={curso_id} />} 
 
+                {modalCrearSala && <CreateSalasModal onClose={handleCloseModal} onCreate={handleSalaCreada} cursoId={id_curso} />} 
             </div>
         </>
     );

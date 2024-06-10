@@ -44,8 +44,8 @@ const MenuProfesor = () => {
         return <div>Error: {error}</div>; // Muestra el error si hay problemas con la API
     }
 
-    const handleCursoClick = (curso) => {
-        navigate('/menu_salas_profesor', { state: { curso } });
+    const handleCursoClick = (id_curso) => {
+        navigate('/menu_salas_profesor', { state: { id_curso:id_curso} });
     };
 
     return (
@@ -74,7 +74,7 @@ const MenuProfesor = () => {
                 <div key={groupIndex} className="cardd-group-container ">
                     <div className="cardd-group">
                         {group.map(curso => (
-                            <div key={curso.id_curso} className="cardd" onClick={() => handleCursoClick(curso)}>
+                            <div key={curso.id_curso} className="cardd" onClick={() => handleCursoClick(curso.id_curso)}>
                                 <div className="cardd-img-top">
                                     <img src={curso.img} alt={curso.nombre_curso} />
                                 </div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const CreateSalasModal = ({ onClose, onCreate, cursoId }) => {
@@ -73,3 +74,12 @@ const CreateSalasModal = ({ onClose, onCreate, cursoId }) => {
 };
 
 export default CreateSalasModal;
+
+
+
+
+
+
+
+
+
