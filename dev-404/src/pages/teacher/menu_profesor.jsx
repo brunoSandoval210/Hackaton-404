@@ -1,73 +1,94 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { fetchCursos_profesor } from './../../services/apiServiceTeacher.js';
 
-const MenuSalas = () => {
-    const [salas, setSalas] = useState([]);
+const MenuProfesor = () => {
+    const [cursos, setCursos] = useState([]);
     const navigate = useNavigate();
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
     useEffect(() => {
-        const fetchSalas = async () => {
-            const salasData = [
-                { id: 1, title: 'Sala 1', description: 'Esta es una descripción breve de la Sala 1.' },
-                { id: 2, title: 'Sala 2', description: 'Esta es una descripción breve de la Sala 2.' },
-                { id: 3, title: 'Sala 3', description: 'Esta es una descripción breve de la Sala 3.' },
-
-            ];
-            setSalas(salasData);
+        const id_profesor = 1; // Cambia esto según sea necesario
+        const getCursos = async () => {
+            try {
+                const response = await fetchCursos_profesor(id_profesor);
+                console.log(response);
+                if (response.error) {
+                    throw new Error('Error al obtener los cursos');
+                }
+                setCursos(response.body); // Aquí estableces los cursos en el estado
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
         };
-
-        fetchSalas();
+        getCursos();
     }, []);
 
-    const handleEnterRoom = (id) => {
-        console.log(`Entrar a la sala con id: ${id}`);
-    };
-
-    if (salas.length === 0) {
-        return <div>Loading...</div>;
-    }
-
-    const groupedSalas = salas.reduce((acc, sala, index) => {
-        const groupIndex = Math.floor(index / 3);
+    const groupedCursos = cursos.reduce((acc, curso, index) => {
+        const groupIndex = Math.floor(index / 4);
         if (!acc[groupIndex]) {
             acc[groupIndex] = [];
         }
-        acc[groupIndex].push(sala);
+        acc[groupIndex].push(curso);
         return acc;
     }, []);
 
+    if (loading) {
+        return <div>Loading...</div>; // Puedes mostrar un loader mientras los datos se cargan
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>; // Muestra el error si hay problemas con la API
+    }
+
+    const handleCursoClick = (id_curso) => {
+        navigate('/menu_salas_profesor', { state: { id_curso:id_curso} });
+    };
+
     return (
-        <>
-            <div className="content">
-                <section className="main-section">
-                    <div className="chat-section">
-                        <div className="chat-header">
-                            <h2>Salas de Trabajo</h2>
-                            <button className="create-btn" onClick={() => console.log('Mostrar modal para crear salas')}>
-                                Crear Salas +
-                            </button>
-                        </div>
-                        
-                        {groupedSalas.map((group, groupIndex) => (
-                            <div key={groupIndex} className="row">
-                                {group.map((sala) => (
-                                    <div key={sala.id} className="col">
-                                        <div className="room-carddd">
-                                            <h2 className="room-title">{sala.title}</h2>
-                                            <p className="room-description">{sala.description}</p>
-                                            <button className="room-button" onClick={() => handleEnterRoom(sala.id)}>
-                                                Entrar
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
+        <div className="container-menu-profesor">
+            <div className="miscursos ">
+            <div className="miscursos-content">
+            <h2>Mis cursos</h2>
+            <div className="filter-container">
+                <label>Filtrar por</label>
+                <select id="course-filter">
+                    <option>2024 - Ciclo 1 Marzo PREG (001) (Actual)</option>
+                </select>
+                
+            </div>            
+        </div>
+        
+        
+        </div>
+
+        <div className="course">
+            <p>2024 - Ciclo 1 Marzo PREG (001) (Actual)</p>
+        </div>
+
+        
+            {groupedCursos.map((group, groupIndex) => (
+                <div key={groupIndex} className="cardd-group-container ">
+                    <div className="cardd-group">
+                        {group.map(curso => (
+                            <div key={curso.id_curso} className="cardd" onClick={() => handleCursoClick(curso.id_curso)}>
+                                <div className="cardd-img-top">
+                                    <img src={curso.img} alt={curso.nombre_curso} />
+                                </div>
+                                <div className="cardd-body">
+                                    <h5 className="cardd-title">{curso.nombre_curso}</h5>
+                                    <p className="cardd-text">{curso.descripcion}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
-                </section>
-            </div>
-        </>
+                </div>
+            ))}
+        </div>
     );
 };
 
-export default MenuSalas;
+export default MenuProfesor;

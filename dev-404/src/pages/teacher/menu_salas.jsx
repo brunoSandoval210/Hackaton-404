@@ -1,28 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import CreateSalasModal from './create_salas_modal.jsx';
+
 
 const MenuSalas = () => {
     const [salas, setSalas] = useState([]);
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [modalCrearSala, setmodalCrearSala] = useState([false]);
+    const [salaCreada, setSalaCreada] = useState(false);
+    const location = useLocation();
+    var id_curso = location.state.id_curso;
+    console.log(id_curso)
 
     useEffect(() => {
         const fetchSalas = async () => {
-            const salasData = [
-                { id: 1, title: 'Sala 1', description: 'Esta es una descripción breve de la Sala 1.' },
-                { id: 2, title: 'Sala 2', description: 'Esta es una descripción breve de la Sala 2.' },
-                { id: 3, title: 'Sala 3', description: 'Esta es una descripción breve de la Sala 3.' },
-                { id: 4, title: 'Sala 4', description: 'Esta es una descripción breve de la Sala 4.' },
-                { id: 5, title: 'Sala 5', description: 'Esta es una descripción breve de la Sala 5.' },
-                { id: 6, title: 'Sala 6', description: 'Esta es una descripción breve de la Sala 6.' }
-            ];
-            setSalas(salasData);
+            try {
+                const response = await fetch(`http://localhost:3001/api/rooms/get_salas_by_courses/${id_curso}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                console.log(data);
+                setSalas(data.body);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
-
         fetchSalas();
-    }, []);
+    }, [id_curso, salaCreada]);
 
-    const handleEnterRoom = (id) => {
-        console.log(`Entrar a la sala con id: ${id}`);
+    const handleEnterRoom = (sala_id) => {
+        console.log(`Entrar a la sala con id: ${sala_id}`);
+    };
+
+    const handleCloseModal = () => {
+        setmodalCrearSala(false);
+    };
+
+    const handleSalaCreada = () => {
+        setSalaCreada(true);
     };
 
     if (salas.length === 0) {
@@ -45,7 +61,7 @@ const MenuSalas = () => {
                     <div className="chat-section">
                         <div className="chat-header">
                             <h2>Salas de Trabajo</h2>
-                            <button className="create-btn" onClick={() => console.log('Mostrar modal para crear salas')}>
+                            <button className="create-btn" onClick={() => {setmodalCrearSala(true)}}>
                                 Crear Salas +
                             </button>
                         </div>
@@ -53,13 +69,14 @@ const MenuSalas = () => {
                         {groupedSalas.map((group, groupIndex) => (
                             <div key={groupIndex} className="row">
                                 {group.map((sala) => (
-                                    <div key={sala.id} className="col">
+                                    <div key={sala.sala_id} className="col">
                                         <div className="room-carddd">
-                                            <h2 className="room-title">{sala.title}</h2>
+                                            <h2 className="room-title">{sala.sala_nombre}</h2>
                                             <p className="room-description">{sala.description}</p>
-                                            <button className="room-button" onClick={() => handleEnterRoom(sala.id)}>
+                                            <span>{sala.numero_participantes}/{sala.max_participantes}</span>
+                                            {/* <button className="room-button" onClick={() => handleEnterRoom(sala.sala_id)}>
                                                 Entrar
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                 ))}
@@ -67,6 +84,8 @@ const MenuSalas = () => {
                         ))}
                     </div>
                 </section>
+
+                {modalCrearSala && <CreateSalasModal onClose={handleCloseModal} onCreate={handleSalaCreada} cursoId={id_curso} />} 
             </div>
         </>
     );

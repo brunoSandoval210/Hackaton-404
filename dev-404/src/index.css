@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 :root{
   --bg-blue: #283044;
-  --bg-light-blue: #7A959F;
+  --bg-light-blue: #b5eafd;
   --bg-white: #FFFFFF;
   --bg-utp:#ECF4F9;
   --text-color-blac:#000000;
@@ -160,6 +160,215 @@ header {
   border: 1px solid #ddd;
 }
 
+
+
+/* header2 */
+.miscursos {
+  padding:30px;
+}
+.miscursos h2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: x-large;
+}
+
+.miscursos-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.filter-container label {
+  margin-right: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.filter-container select {
+  font-size: 15px;
+  padding: 5px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.course {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+
+
+.course p {
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .filter-container {
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 10px;
+  }
+
+  .filter-container label {
+      margin-right: 5px;
+  }
+
+  .filter-container select {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content h2 {
+      font-size: 20px;
+  }
+
+  .filter-container label {
+      font-size: 14px;
+  }
+
+  .filter-container select {
+      font-size: 14px;
+  }
+
+  .course p {
+      font-size: 16px;
+  }
+}
+
+/* header2 */
+
+
+
+
+
+/* modal salas */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.modal {
+  display: block; /* Cambia a 'none' para ocultar el modal por defecto */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* Fondo negro con opacidad */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  position: relative;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content label,
+.modal-content input[type="number"],
+.modal-content .radio-group,
+.modal-content button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.modal-content input[type="number"] {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+}
+
+.modal-content .radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.modal-content .radio-group input {
+  margin-right: 10px;
+}
+
+.modal-content button {
+  background-color: #0661fc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+}
+
+.modal-content button:hover {
+  background-color: #4081f1;
+}
+
+
+
+/* modal salas */
+
+
+
 /*********************************************************************/
 /*Teacher menu card*/
 
@@ -217,7 +426,7 @@ header {
 .container-menu-profesor {
   padding: 0px;
   font-family: Arial, sans-serif;
-  width: 100vw;
+  width: 100%;
 }
 
 .header {
@@ -243,6 +452,7 @@ header {
 .cardd-group-container {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .cardd-group {
@@ -285,7 +495,8 @@ header {
 }
 
 .cardd-title {
-  font-size: 1.2em;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 0;
 }
 
@@ -306,7 +517,7 @@ header {
 }
 
 .text-muted {
-  color: gray;
+  color: rgb(94, 69, 69);
 }
 
 @media (max-width: 1200px) {
@@ -710,10 +921,64 @@ header {
 }
 
 .modal-content-crear{
-  background-color: white;
-  margin: 15% auto; /* Centra el modal verticalmente y lo separa del borde superior */
+  background-color: var(--bg-utp);
+  border-radius: 30px;
+  margin: 10% auto; /* Centra el modal verticalmente y lo separa del borde superior */
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Ancho del modal */
+  width: 25%; /* Ancho del modal */
+  height: auto;
 }
+.modal-formulario {
+  display:block;
+}
+.modal-formulario .form-group input{
+  border-radius: 20px;
+  width: 95%;
+  margin-top:5px;
+  margin-bottom: 20px;
+}
+.modal-formulario .form-group textarea{
+  width: 95%;
+  height: 95px;
+  border-radius: 20px;
+  border-width: 1.9px;
+  border-color: #000000;
+  margin-bottom: auto;
+}
+
+
+
+
+.estado-tarea{display: flex;}
+.nombre-tarea{display: flex;}
+.descripcion-tarea{display: flex;}
+.asignadoA-tarea{display: flex;}
+
+.modal-formulario .form-group select{
+  border-width:1.9px;
+  border-color: #000000;
+  display: flex;
+  border-radius: 20px;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.modal-form-botones{
+  margin-top: 20px;
+  text-align: right;
+}
+
+.modal-form-botones button{
+  border-radius: 20px;
+  width: 150px;
+  background-color: #0661fc;
+  color: #FFFFFF;
+
+}
+.modal-form-botones button:hover{
+  background-color: #283044;
+}
+
+.form-group i{font-size: 20px; padding-left: 3px; padding-right: 3px; };
+
 

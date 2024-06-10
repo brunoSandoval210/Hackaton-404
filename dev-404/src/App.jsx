@@ -9,7 +9,7 @@ import MenuAlumno from './pages/student/MenuAlumno'
 import MenuSala from './pages/student/MenuSala'
 
 function App() {
-  const [role, setRole] = useState('teacher');
+  const [role, setRole] = useState('student');
   return (
     <BrowserRouter>
 
